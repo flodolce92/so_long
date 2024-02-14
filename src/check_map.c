@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/09 15:07:30 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/14 19:08:59 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,12 @@ void	check_rect(t_data *game)
 	}
 }
 
-void	check_map(t_data *game)
+void	count_map(t_data *game)
 {
 	int		i;
 	int		j;
-	int		collect;
-	int		exits;
 
 	i = 0;
-	collect = 0;
-	exits = 0;
-	check_rect(game);
 	while (i < (*game).rows)
 	{
 		j = 0;
@@ -49,16 +44,17 @@ void	check_map(t_data *game)
 			if ((*game).map[i][j] == 'P')
 			{
 				printf("Player found at %d, %d\n", i, j);
+				(*game).player++;
 			}
 			else if ((*game).map[i][j] == 'E')
 			{
 				printf("Exit found at %d, %d\n", i, j);
-				exits++;
+				(*game).exit++;
 			}
 			else if ((*game).map[i][j] == 'C')
 			{
 				printf("Collectible found at %d, %d\n", i, j);
-				collect++;
+				(*game).collect++;
 			}
 			else if ((*game).map[i][j] != '1' && (*game).map[i][j] != '0')
 			{
@@ -69,7 +65,14 @@ void	check_map(t_data *game)
 		}
 		i++;
 	}
-	if (exits != 1 || collect < 1)
+}
+
+void	check_map(t_data *game)
+{
+	check_rect(game);
+	count_map(game);
+
+	if ((*game).exit != 1 || (*game).collect < 1)
 	{
 		ft_putstr_fd("Invalid map.\n", STDOUT_FILENO);
 		exit(1);
