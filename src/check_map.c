@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/14 19:08:59 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/15 02:00:29 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,11 @@ void	count_map(t_data *game)
 		while (j < (*game).cols - 1)
 		{
 			if ((*game).map[i][j] == 'P')
-			{
-				printf("Player found at %d, %d\n", i, j);
 				(*game).player++;
-			}
 			else if ((*game).map[i][j] == 'E')
-			{
-				printf("Exit found at %d, %d\n", i, j);
 				(*game).exit++;
-			}
 			else if ((*game).map[i][j] == 'C')
-			{
-				printf("Collectible found at %d, %d\n", i, j);
 				(*game).collect++;
-			}
 			else if ((*game).map[i][j] != '1' && (*game).map[i][j] != '0')
 			{
 				ft_putstr_fd("Invalid map.\n", STDOUT_FILENO);

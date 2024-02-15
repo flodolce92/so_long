@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 22:41:55 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/09 11:27:38 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:29:47 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ char	*read_from_file(int fd, char *leftover)
 	if (!buffer)
 		return (NULL);
 	bytes_read = 1;
-	if (!leftover)
-		leftover = ft_strdup("");
 	while (!(ft_strchr(leftover, '\n')) && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -33,6 +31,8 @@ char	*read_from_file(int fd, char *leftover)
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
+		if (!leftover)
+			leftover = ft_strdup("");
 		tmp = leftover;
 		leftover = ft_strjoin(tmp, buffer);
 		free(tmp);
