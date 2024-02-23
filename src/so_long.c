@@ -6,11 +6,48 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/14 19:38:01 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:18:36 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_textures(t_data *game)
+{
+	mlx_destroy_image(game->mlx, game->textures.coin);
+	mlx_destroy_image(game->mlx, game->textures.door);
+	mlx_destroy_image(game->mlx, game->textures.ground);
+	mlx_destroy_image(game->mlx, game->textures.wall);
+}
+
+int	on_destroy(t_data *game)
+{
+	free_textures(game);
+	mlx_destroy_window(game->mlx, game->win);
+	//mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	exit(0);
+	return (0);
+}
+
+int	key_hook(int keycode, t_data *game)
+{
+	if (keycode == 65307)
+		on_destroy(game);
+	return (0);
+}
+
+void  open_ground_coins_door(t_data *game)
+{
+	game->textures.ground = mlx_xpm_file_to_image(game->mlx, \
+	"assets/ground.xpm", &game->width, &game->height);
+	game->textures.coin = mlx_xpm_file_to_image(game->mlx, \
+	"assets/coin.xpm", &game->width, &game->height);
+	game->textures.door = mlx_xpm_file_to_image(game->mlx, \
+	"assets/door.xpm", &game->width, &game->height);
+	game->textures.wall = mlx_xpm_file_to_image(game->mlx, \
+	"assets/wall.xpm", &game->width, &game->height);
+}
 
 void	fill_window(t_data *game)
 {
@@ -62,6 +99,7 @@ void	create_window(t_data *game)
 		ft_putstr_fd("Error: mlx_new_window failed.\n", STDOUT_FILENO);
 		exit(1);
 	}
+	open_ground_coins_door(game);
 	fill_window(game);
 }
 
@@ -75,10 +113,8 @@ int	main(int ac, char **av)
 		ft_putstr_fd("Too few parameters.\n", STDOUT_FILENO);
 		return (1);
 	}
-	(void)game;
-	get_rows(&game, av[1]);
-	// printf("Map rows: %d\n", game.rows);
 	fill_map(&game, av[1]);
+	// printf("Map rows: %d\n", game.rows);
 	// printf("Map cols: %d\n", game.cols);
 	// while (game.map[i] != NULL)
 	// {
@@ -87,6 +123,8 @@ int	main(int ac, char **av)
 	// }
 	check_map(&game);
 	create_window(&game);
+	mlx_key_hook(game.win, key_hook, &game);
+	mlx_hook(game.win, 17, 0, on_destroy, &game);
 	mlx_loop(game.mlx);
 	exit(0);
 	return (0);

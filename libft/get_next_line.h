@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 22:41:52 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/09 11:15:03 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:29:25 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 3
