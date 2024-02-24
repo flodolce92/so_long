@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 13:53:12 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:16:29 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	check_last_row(t_data *game)
 			error_message("Invalid map.");
 		i++;
 	}
-	printf("last char: %c\n", game->map[game->rows - 1][i]);
 	if (game->map[game->rows - 1][i] != '\0' && game->map[game->rows - 1][i] != '\n')
 		error_message("Invalid map.");
 }
