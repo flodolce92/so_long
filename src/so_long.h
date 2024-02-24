@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/23 23:29:00 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 00:23:44 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_data
 	int			x;
 	int			y;
 	char		**map;
+	char		**map_dup;
 	int			rows;
 	int			cols;
 	int			player;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/23 23:18:36 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 00:18:35 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ int	key_hook(int keycode, t_data *game)
 	return (0);
 }
 
-void  open_ground_coins_door(t_data *game)
+void	open_ground_coins_door(t_data *game)
 {
 	game->textures.ground = mlx_xpm_file_to_image(game->mlx, \
-	"assets/ground.xpm", &game->width, &game->height);
+		"assets/ground.xpm", &game->width, &game->height);
 	game->textures.coin = mlx_xpm_file_to_image(game->mlx, \
-	"assets/coin.xpm", &game->width, &game->height);
+		"assets/coin.xpm", &game->width, &game->height);
 	game->textures.door = mlx_xpm_file_to_image(game->mlx, \
-	"assets/door.xpm", &game->width, &game->height);
+		"assets/door.xpm", &game->width, &game->height);
 	game->textures.wall = mlx_xpm_file_to_image(game->mlx, \
-	"assets/wall.xpm", &game->width, &game->height);
+		"assets/wall.xpm", &game->width, &game->height);
 }
 
 void	fill_window(t_data *game)
@@ -88,25 +88,46 @@ void	create_window(t_data *game)
 	if (!game->mlx)
 	{
 		ft_putstr_fd("Error: mlx_init failed.\n", STDOUT_FILENO);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	game->win = mlx_new_window(game->mlx,
-				game->cols * 32,
-				game->rows * 32,
-				"so_long");
+			game->cols * 32,
+			game->rows * 32,
+			"so_long");
 	if (!game->win)
 	{
 		ft_putstr_fd("Error: mlx_new_window failed.\n", STDOUT_FILENO);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	open_ground_coins_door(game);
 	fill_window(game);
+}
+
+void	init_struct(t_data *game)
+{
+	game->mlx = NULL;
+	game->win = NULL;
+	game->width = 0;
+	game->height = 0;
+	game->x = 0;
+	game->y = 0;
+	game->map = NULL;
+	game->rows = 0;
+	game->cols = 0;
+	game->player = 0;
+	game->collect = 0;
+	game->exit = 0;
+	game->textures.ground = NULL;
+	game->textures.coin = NULL;
+	game->textures.door = NULL;
+	game->textures.wall = NULL;
 }
 
 int	main(int ac, char **av)
 {
 	t_data	game;
 	int		i;
+
 	i = 0;
 	if (ac < 2)
 	{
@@ -126,6 +147,6 @@ int	main(int ac, char **av)
 	mlx_key_hook(game.win, key_hook, &game);
 	mlx_hook(game.win, 17, 0, on_destroy, &game);
 	mlx_loop(game.mlx);
-	exit(0);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
