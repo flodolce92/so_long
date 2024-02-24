@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:18:17 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/01/17 15:34:53 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/15 01:42:41 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 char	*ft_strchr(const char *str, int ch)
 {
 	int		i;
-	char	*caststr;
 
+	if (!str)
+		return (NULL);
 	i = 0;
-	caststr = (char *) str;
-	while (caststr[i])
+	while (str[i])
 	{
-		if (caststr[i] == (char) ch)
-			return (&caststr[i]);
+		if (str[i] == (char) ch)
+			return ((char *) &str[i]);
 		i++;
 	}
-	if (caststr[i] == (char) ch)
-		return (&caststr[i]);
+	if (str[i] == (char) ch)
+		return ((char *) &str[i]);
 	return (NULL);
 }
