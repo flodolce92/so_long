@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 00:23:44 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:38:33 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_textures
 	void	*coin;
 	void	*door;
 	void	*wall;
+	void	*player;
 }	t_textures;
 
 typedef struct s_data
@@ -42,13 +43,26 @@ typedef struct s_data
 	int			rows;
 	int			cols;
 	int			player;
-	int			collect;
+	int			coins;
 	int			exit;
+	int			moves;
+	int			score;
 	t_textures	textures;
 }	t_data;
 
+void	init_struct(t_data *game);
+
 void	get_rows(t_data *game, char *path_map);
-void	fill_map(t_data *game, char *path_map);
 void	check_map(t_data *game);
+void	fill_map(t_data *game, char *path_map);
+void	print_map(char *line, t_data *game, int index);
+
+void	open_ground_coins_door(t_data *game);
+void	fill_window(t_data *game);
+
+int		key_hook(int keycode, t_data *game);
+
+void	free_textures(t_data *game);
+int		on_destroy(t_data *game);
 
 #endif

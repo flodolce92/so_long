@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/02/23 23:17:53 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/02/24 10:49:31 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,11 +40,12 @@ $(NAME):	$(OBJS)
 
 clean:
 			$(RM) $(OBJS)
-			@make -C ./libft clean
+#@make -C ./mlx clean
+#@make -C ./libft clean
 
 fclean:		clean
 			$(RM) $(NAME)
-			@make -C ./libft fclean
+#@make -C ./libft fclean
 
 re:			fclean all
 
