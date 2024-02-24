@@ -1,0 +1,7 @@
+.DS_Store
+*.swo
+*.swp
+*.out
+*.o
+*.a
+so_long
