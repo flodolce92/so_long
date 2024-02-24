@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 11:08:24 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 13:24:23 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	main(int ac, char **av)
 	i = 0;
 	if (ac < 2)
 		error_message("Too few parameters.");
+	if (!ft_strnstr(av[1], ".ber", ft_strlen(av[1])))
+		error_message("Invalid file type. Must be: \"<name>.ber\"");
 	init_struct(&game);
 	fill_map(&game, av[1]);
 	check_map(&game);

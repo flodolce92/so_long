@@ -6,11 +6,27 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 13:05:29 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 13:53:12 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_last_row(t_data *game)
+{
+	int		i;
+
+	i = 0;
+	while (i < game->cols)
+	{
+		if (game->map[game->rows - 1][i] != '1')
+			error_message("Invalid map.");
+		i++;
+	}
+	printf("last char: %c\n", game->map[game->rows - 1][i]);
+	if (game->map[game->rows - 1][i] != '\0' && game->map[game->rows - 1][i] != '\n')
+		error_message("Invalid map.");
+}
 
 void	check_rect(t_data *game)
 {
@@ -18,16 +34,17 @@ void	check_rect(t_data *game)
 	int		row_len;
 
 	i = 0;
-	while (i < game->rows)
+	while (i < game->rows - 1)
 	{
 		row_len = ft_strlen(game->map[i]) - 1;
 		if (row_len != game->cols)
-		{
-			ft_putstr_fd("Invalid map.\n", STDOUT_FILENO);
-			exit(1);
-		}
+			error_message("Invalid map.");
 		i++;
 	}
+	if (game->cols < 3 || game->rows < 3)
+		error_message("Invalid map.");
+	if (game->cols == game->rows)
+		error_message("Invalid map.");
 }
 
 void	count_map(t_data *game)
@@ -39,7 +56,7 @@ void	count_map(t_data *game)
 	while (i < game->rows)
 	{
 		j = 0;
-		while (j < game->cols - 1)
+		while (j < game->cols)
 		{
 			if (game->map[i][j] == 'P')
 				game->player++;
@@ -48,10 +65,7 @@ void	count_map(t_data *game)
 			else if (game->map[i][j] == 'C')
 				game->coins++;
 			else if (game->map[i][j] != '1' && game->map[i][j] != '0')
-			{
-				ft_putstr_fd("Invalid map.\n", STDOUT_FILENO);
-				exit(1);
-			}
+				error_message("Invalid map.");
 			j++;
 		}
 		i++;
@@ -60,11 +74,9 @@ void	count_map(t_data *game)
 
 void	check_map(t_data *game)
 {
+	check_last_row(game);
 	check_rect(game);
 	count_map(game);
-	if (game->exit != 1 || game->coins < 1)
-	{
-		ft_putstr_fd("Invalid map.\n", STDOUT_FILENO);
-		exit(1);
-	}
+	if (game->exit != 1 || game->coins < 1 || game->player != 1)
+		error_message("Invalid map.");
 }

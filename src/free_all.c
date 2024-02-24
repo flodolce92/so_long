@@ -6,11 +6,24 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:45:30 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 11:10:55 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 13:18:12 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_map(t_data *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < game->rows)
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);
+}
 
 void	free_textures(t_data *game)
 {
