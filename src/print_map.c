@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 10:46:47 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:11:48 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_map(char *line, t_data *game, int index)
 		game->textures.door, i * 32, (index * 32));
 		else if (line[i] == 'P')
 		{
-			mlx_put_image_to_window(game->mlx, game->win,
+			mlx_put_image_to_window(game->mlx, game->win, \
 		game->textures.ground, i * 32, (index * 32));
 			mlx_put_image_to_window(game->mlx, game->win, \
 		game->textures.player, i * 32, (index * 32));

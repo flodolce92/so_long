@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:46:08 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 00:55:26 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:02:12 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	get_rows(t_data *game, char *path_map)
 	rows = 0;
 	fd = open(path_map, O_RDONLY);
 	if (fd < 0)
-	{
-		ft_putstr_fd("No map found.\n", STDOUT_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		error_message("No map found.");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -33,6 +30,7 @@ void	get_rows(t_data *game, char *path_map)
 		rows++;
 	}
 	close(fd);
+	free(line);
 	game->rows = rows;
 }
 
@@ -45,16 +43,10 @@ void	fill_map(t_data *game, char *path_map)
 	get_rows(game, path_map);
 	fd = open(path_map, O_RDONLY);
 	if (fd < 0)
-	{
-		ft_putstr_fd("No map found.\n", STDOUT_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		error_message("No map found.");
 	game->map = (char **) malloc(sizeof(char *) * (game->rows + 1));
 	if (game->map == NULL)
-	{
-		ft_putstr_fd("Memory allocation failed.\n", STDOUT_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		error_message("Memory allocation failed.");
 	while (i < game->rows)
 	{
 		game->map[i] = get_next_line(fd);

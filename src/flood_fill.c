@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 00:20:14 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 01:02:38 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:12:45 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,19 @@ void	floodfill(t_data *game, int row, int col)
 	floodfill(game, row, col + 1);
 }
 
-void	duplicate_map(t_data *game) {
-	int i;
+void	duplicate_map(t_data *game)
+{
+	int	i;
 
 	game->map_dup = (char **) malloc(sizeof(char *) * (game->rows + 1));
 	if (game->map_dup == NULL)
-	{
-		ft_putstr_fd("Memory allocation failed.\n", STDOUT_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		error_message("Memory allocation failed.");
 	i = 0;
-	while (i < game->rows) {
+	while (i < game->rows)
+	{
 		game->map_dup[i] = ft_strdup(game->map[i]);
-		if (game->map_dup[i] == NULL) {
-			ft_putstr_fd("Memory allocation failed.\n", STDOUT_FILENO);
-			exit(EXIT_FAILURE);
-		}
+		if (game->map_dup[i] == NULL)
+			error_message("Memory allocation failed.");
 		i++;
 	}
 	game->map_dup[i] = NULL;
