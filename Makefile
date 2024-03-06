@@ -6,13 +6,26 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/02/24 10:49:31 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/06 16:50:06 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	$(shell find ./src -name "*.c")
+SRCS_DIR	=	src/
 
-OBJS		=	$(SRCS:.c=.o)
+SRC			=	check_map.c \
+				flood_fill.c \
+				free_all.c \
+				init.c \
+				main.c \
+				map_utils.c \
+				open_images.c \
+				print_map.c
+
+SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
+
+OBJS_DIR	=	obj/
+
+OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.c=.o))
 
 NAME		=	so_long
 
@@ -28,28 +41,34 @@ MLX_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 LIBFT_FLAGS	=	-Llibft -lft
 
-all:		$(NAME)
+all:			$(NAME)
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) $(INCLUDES)
+$(OBJS_DIR):
+				mkdir -p $(OBJS_DIR)
 
-$(NAME):	$(OBJS)
-			@make -C ./mlx
-			@make -C ./libft
-			$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS)
+$(OBJS_DIR)%.o:	$(SRCS_DIR)%.c | $(OBJS_DIR)
+				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+
+$(NAME):		$(OBJS_DIR) $(OBJS)
+				@make -C ./mlx
+				@make -C ./libft
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS)
 
 clean:
-			$(RM) $(OBJS)
+				$(RM) $(OBJS)
 #@make -C ./mlx clean
 #@make -C ./libft clean
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 #@make -C ./libft fclean
 
-re:			fclean all
+re:				fclean all
 
 norm:
-			@norminette $(shell find ./src -name "*.c")
+				@norminette $(SRCS)
 
-.PHONY:		all clean fclean re norm
+test:			all
+				./$(NAME) ./maps/test1.ber
+
+.PHONY:			all clean fclean re norm
