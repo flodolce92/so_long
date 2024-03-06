@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 00:37:59 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/03 21:26:38 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:49:30 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	count_words(const char *str, char c)
 	return (count);
 }
 
-void del_split(char **split)
+void	del_split(char **split)
 {
 	int	word;
 

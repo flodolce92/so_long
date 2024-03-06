@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 22:41:55 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/15 01:29:47 by flo-dolc         ###   ########.fr       */
+/*   Created: 2024/02/26 20:29:07 by flo-dolc          #+#    #+#             */
+/*   Updated: 2024/02/26 20:29:08 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,18 +95,18 @@ char	*get_new_leftover(char *leftover)
 
 char	*get_next_line(int fd)
 {
-	static char	*leftover;
+	static char	*leftover[4096];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	leftover = read_from_file(fd, leftover);
-	if (!leftover)
+	leftover[fd] = read_from_file(fd, leftover[fd]);
+	if (!leftover[fd])
 	{
-		free(leftover);
+		free(leftover[fd]);
 		return (NULL);
 	}
-	line = get_line(leftover);
-	leftover = get_new_leftover(leftover);
+	line = get_line(leftover[fd]);
+	leftover[fd] = get_new_leftover(leftover[fd]);
 	return (line);
 }
