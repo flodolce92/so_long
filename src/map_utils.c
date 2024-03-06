@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:46:08 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 11:02:12 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/06 17:46:29 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	fill_map(t_data *game, char *path_map)
 
 	i = 0;
 	get_rows(game, path_map);
+	if (game->rows == 0)
+		error_message("Invalid map.");
 	fd = open(path_map, O_RDONLY);
 	if (fd < 0)
 		error_message("No map found.");
