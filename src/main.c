@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 13:24:23 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:17:40 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	main(int ac, char **av)
 	int		i;
 
 	i = 0;
-	if (ac < 2)
-		error_message("Too few parameters.");
+	if (ac != 2)
+		error_message("Wrong number of arguments. Usage: ./so_long <map.ber>");
 	if (!ft_strnstr(av[1], ".ber", ft_strlen(av[1])))
 		error_message("Invalid file type. Must be: \"<name>.ber\"");
 	init_struct(&game);

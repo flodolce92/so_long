@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/03/06 17:38:40 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/06 18:08:05 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ $(OBJS_DIR):
 				mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c | $(OBJS_DIR)
-				$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+				$(CC) $(CFLAGS) -c -g $< -o $@ $(INCLUDES)
 
 $(NAME):		$(OBJS_DIR) $(OBJS)
 				@make -C ./mlx
