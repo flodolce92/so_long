@@ -6,11 +6,38 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:45:55 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 21:38:56 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_closed_map(t_data *game)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < game->rows)
+	{
+		j = 0;
+		while (j < game->cols)
+		{
+			if (i == 0 || i == game->rows - 1)
+			{
+				if (game->map[i][j] != '1')
+					error_message("Invalid map.");
+			}
+			else if (j == 0 || j == game->cols - 1)
+			{
+				if (game->map[i][j] != '1')
+					error_message("Invalid map.");
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 void	check_last_row(t_data *game)
 {
@@ -77,6 +104,7 @@ void	count_map(t_data *game)
 
 void	check_map(t_data *game)
 {
+	check_closed_map(game);
 	check_last_row(game);
 	check_rect(game);
 	count_map(game);
