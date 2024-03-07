@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 20:21:13 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 22:42:53 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void	error_message(char *message)
 {
 	ft_putstr_fd("Error: ", STDOUT_FILENO);
-	ft_putstr_fd(message, STDOUT_FILENO);
-	ft_putstr_fd("\n", STDOUT_FILENO);
+	ft_putendl_fd(message, STDOUT_FILENO);
 	exit(EXIT_FAILURE);
 }
 
@@ -41,7 +40,7 @@ void	create_window(t_data *game)
 			"so_long");
 	if (!game->win)
 		error_message("mlx_new_window failed.");
-	open_ground_coins_door(game);
+	open_images(game);
 	fill_window(game);
 }
 

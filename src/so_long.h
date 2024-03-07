@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:58:52 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 22:35:40 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_map(char *line, t_data *game, int index);
 void	duplicate_map(t_data *game);
 int		validmove(t_data *game, int row, int col);
 
-void	open_ground_coins_door(t_data *game);
+void	open_images(t_data *game);
 void	fill_window(t_data *game);
 
 int		key_hook(int keycode, t_data *game);
