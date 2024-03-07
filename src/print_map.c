@@ -6,11 +6,35 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 18:39:15 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 22:51:00 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	print_coin(t_data *game, int i, int index)
+{
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.ground, i * 32, (index * 32));
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.coin, i * 32, (index * 32));
+}
+
+void	print_player(t_data *game, int i, int index)
+{
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.ground, i * 32, (index * 32));
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.player, i * 32, (index * 32));
+}
+
+void	print_exit(t_data *game, int i, int index)
+{
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.ground, i * 32, (index * 32));
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.door, i * 32, (index * 32));
+}
 
 void	print_map(char *line, t_data *game, int index)
 {
@@ -26,26 +50,11 @@ void	print_map(char *line, t_data *game, int index)
 			mlx_put_image_to_window(game->mlx, game->win, \
 		game->textures.ground, i * 32, (index * 32));
 		else if (line[i] == 'C')
-		{
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.ground, i * 32, (index * 32));
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.coin, i * 32, (index * 32));
-		}
+			print_coin(game, i, index);
 		else if (line[i] == 'E')
-		{
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.ground, i * 32, (index * 32));
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.door, i * 32, (index * 32));
-		}
+			print_exit(game, i, index);
 		else if (line[i] == 'P')
-		{
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.ground, i * 32, (index * 32));
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.player, i * 32, (index * 32));
-		}
+			print_player(game, i, index);
 		i++;
 	}
 }

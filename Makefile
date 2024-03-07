@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/03/07 19:59:17 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/07 22:53:27 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ re:				fclean all
 
 norm:
 				@norminette $(SRCS)
+				@norminette -R CheckDefine $(SRCS_DIR)so_long.h
 
 test:			all
 				@./$(NAME) ./maps/test1.ber

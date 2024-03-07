@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 00:20:14 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:45:17 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 22:51:18 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,5 @@ void	duplicate_map(t_data *game)
 	}
 	game->map_dup[i] = NULL;
 	floodfill(game, game->p_pos.row, game->p_pos.col);
-	// i = 0;
-	// while (i < game->rows)
-	// {
-	// 	printf("%s\n", game->map_dup[i]);
-	// 	i++;
-	// }
 	check_flood(game);
 }
