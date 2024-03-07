@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/06 18:17:40 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 01:03:51 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ void	create_window(t_data *game)
 int	main(int ac, char **av)
 {
 	t_data	game;
-	int		i;
 
-	i = 0;
 	if (ac != 2)
 		error_message("Wrong number of arguments. Usage: ./so_long <map.ber>");
 	if (!ft_strnstr(av[1], ".ber", ft_strlen(av[1])))
