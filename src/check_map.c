@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:15:33 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:45:55 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	count_map(t_data *game)
 		{
 			if (game->map[i][j] == 'P')
 			{
-				game->player_row = i;
-				game->player_col = j;
+				game->p_pos.row = i;
+				game->p_pos.col = j;
 				game->player++;
 			}
 			else if (game->map[i][j] == 'E')

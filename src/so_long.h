@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:29:25 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:44:42 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ typedef struct s_textures
 	void	*player;
 }	t_textures;
 
+typedef struct s_player
+{
+	int	row;
+	int	col;
+}	t_player;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -43,8 +49,7 @@ typedef struct s_data
 	int			rows;
 	int			cols;
 	int			player;
-	int			player_row;
-	int			player_col;
+	t_player	p_pos;
 	int			coins;
 	int			exit;
 	int			moves;

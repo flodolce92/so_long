@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 00:20:14 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:29:13 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:45:17 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	duplicate_map(t_data *game)
 		i++;
 	}
 	game->map_dup[i] = NULL;
-	floodfill(game, game->player_row, game->player_col);
+	floodfill(game, game->p_pos.row, game->p_pos.col);
 	// i = 0;
 	// while (i < game->rows)
 	// {
