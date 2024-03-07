@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/03/07 01:28:54 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/07 18:57:35 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -f
 
-#INCLUDES	=	-Imlx -Ilibft
-INCLUDES	=	-I/usr/include -Imlx_linux -O3 -Ilibft
+INCLUDES	=	-Imlx -Ilibft
+#INCLUDES	=	-I/usr/include -Imlx_linux -O3 -Ilibft
 
-#MLX_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
-MLX_FLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
+MLX_FLAGS	=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+#MLX_FLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 
 LIBFT_FLAGS	=	-Llibft -lft
 
@@ -52,8 +52,8 @@ $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c | $(OBJS_DIR)
 				$(CC) $(CFLAGS) -c -g $< -o $@ $(INCLUDES)
 
 $(NAME):		$(OBJS_DIR) $(OBJS)
-#@make -C ./mlx
-				@make -C ./mlx_linux
+				@make -C ./mlx
+#@make -C ./mlx_linux
 				@make -C ./libft
 				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS)
 

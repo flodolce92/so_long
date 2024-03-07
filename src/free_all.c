@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:45:30 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 14:23:42 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:59:37 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void	free_map(t_data *game)
 	while (i < game->rows)
 	{
 		free(game->map[i]);
+		game->map[i] = NULL;
 		i++;
 	}
 	free(game->map);
+	game->map = NULL;
 }
 
 void	free_textures(t_data *game)

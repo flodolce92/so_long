@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:12:39 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/24 11:10:47 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 18:58:07 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	init_struct(t_data *game)
 	game->x = 0;
 	game->y = 0;
 	game->map = NULL;
+	game->map_dup = NULL;
 	game->rows = 0;
 	game->cols = 0;
 	game->player = 0;

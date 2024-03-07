@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:46:08 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/06 17:46:29 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:01:04 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	get_rows(t_data *game, char *path_map)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		free(line);
 		rows++;
 	}
 	close(fd);
