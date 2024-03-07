@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:46:11 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:21:13 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	key_hook(int keycode, t_data *game)
 {
 	if (keycode == 13 || keycode == 0
 		|| keycode == 1 || keycode == 2)
-		printf("keycode: %d\n", keycode);
-		// update_player_position(game, keycode);
+		update_player_position(game, keycode);
 	else if (keycode == 53)
 		on_destroy(game);
 	return (0);

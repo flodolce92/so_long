@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:44:42 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/07 19:58:52 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	open_ground_coins_door(t_data *game);
 void	fill_window(t_data *game);
 
 int		key_hook(int keycode, t_data *game);
+void	update_player_position(t_data *game, int keycode);
 
 void	free_map(t_data *game);
 void	free_textures(t_data *game);
