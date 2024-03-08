@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 01:52:57 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:10:33 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@
 
 enum keys
 {
-	W = 13,
-	A = 0,
-	S = 1,
-	D = 2,
-	ESC = 53
+	// W = 13,
+	// A = 0,
+	// S = 1,
+	// D = 2,
+	// ESC = 53,
+	W = 119,
+	A = 97,
+	S = 115,
+	D = 100,
+	ESC = 65307
 };
 
 typedef struct s_textures
@@ -81,8 +86,8 @@ int		validmove(t_data *game, int row, int col);
 void	open_images(t_data *game);
 void	fill_window(t_data *game);
 
-void	loop_hook(t_data *game);
-void	key_hook(int keycode, t_data *game);
+int		loop_hook(t_data *game);
+int		key_hook(int keycode, t_data *game);
 void	update_player_position(t_data *game, int keycode);
 
 void	free_map(t_data *game);

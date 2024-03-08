@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:12:39 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:44:51 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:24:48 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,7 @@ void	init_struct(t_data *game)
 	game->textures.coin = NULL;
 	game->textures.door = NULL;
 	game->textures.wall = NULL;
+	game->textures.wall2 = NULL;
+	game->textures.player = NULL;
+	game->frames = 0;
 }
