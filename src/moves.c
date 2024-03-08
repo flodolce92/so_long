@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:26:59 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 23:18:44 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	move_check(t_data *game)
 	}
 	if (game->map[game->p_pos.row][game->p_pos.col] == 'B')
 	{
-		ft_putstr_fd("Watch out! That\'s a bug!\n", 1);
+		ft_putstr_fd("\nWatch out! That\'s a bug!\n", 1);
 		ft_putstr_fd("Uh oh, looks like your code is infected\n", 1);
 		ft_putstr_fd("----------------------------------------\n", 1);
 		ft_putstr_fd("You're a loser, baby\n", 1);
