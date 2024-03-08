@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:12:39 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 02:24:48 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:39:05 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_struct(t_data *game)
 	game->player = 0;
 	game->p_pos.row = 0;
 	game->p_pos.col = 0;
+	game->p_pos.direction = FRONT;
 	game->coins = 0;
 	game->exit = 0;
 	game->moves = 0;
@@ -37,5 +38,8 @@ void	init_struct(t_data *game)
 	game->textures.wall = NULL;
 	game->textures.wall2 = NULL;
 	game->textures.player = NULL;
+	game->textures.player_left = NULL;
+	game->textures.player_right = NULL;
+	game->textures.player_back = NULL;
 	game->frames = 0;
 }

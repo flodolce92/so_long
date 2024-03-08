@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 02:10:33 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:38:45 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ enum keys
 	ESC = 65307
 };
 
+enum directions
+{
+	FRONT,
+	BACK,
+	LEFT,
+	RIGHT
+};
+
 typedef struct s_textures
 {
 	void	*ground;
@@ -43,12 +51,16 @@ typedef struct s_textures
 	void	*wall;
 	void	*wall2;
 	void	*player;
+	void	*player_left;
+	void	*player_right;
+	void	*player_back;
 }	t_textures;
 
 typedef struct s_player
 {
-	int	row;
-	int	col;
+	int				row;
+	int				col;
+	enum directions	direction;
 }	t_player;
 
 typedef struct s_data

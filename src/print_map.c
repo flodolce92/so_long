@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 01:53:05 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:39:51 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,18 @@ void	print_player(t_data *game, int i, int index)
 {
 	mlx_put_image_to_window(game->mlx, game->win, \
 		game->textures.ground, i * 32, (index * 32));
-	mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.player, i * 32, (index * 32));
+	if (game->p_pos.direction == FRONT)
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->textures.player, i * 32, (index * 32));
+	else if (game->p_pos.direction == BACK)
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->textures.player_back, i * 32, (index * 32));
+	else if (game->p_pos.direction == LEFT)
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->textures.player_left, i * 32, (index * 32));
+	else if (game->p_pos.direction == RIGHT)
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->textures.player_right, i * 32, (index * 32));
 }
 
 void	print_exit(t_data *game, int i, int index)

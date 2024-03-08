@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:06:32 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 01:53:28 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:29:44 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ void	open_images(t_data *game)
 	game->textures.door = mlx_xpm_file_to_image(game->mlx, \
 		"assets/hole.xpm", &game->width, &game->height);
 	game->textures.wall = mlx_xpm_file_to_image(game->mlx, \
-		"assets/wall.xpm", &game->width, &game->height);
+		"assets/water1.xpm", &game->width, &game->height);
 	game->textures.wall2 = mlx_xpm_file_to_image(game->mlx, \
 		"assets/water2.xpm", &game->width, &game->height);
 	game->textures.player = mlx_xpm_file_to_image(game->mlx, \
 		"assets/player.xpm", &game->width, &game->height);
+	game->textures.player_left = mlx_xpm_file_to_image(game->mlx, \
+		"assets/player_left.xpm", &game->width, &game->height);
+	game->textures.player_right = mlx_xpm_file_to_image(game->mlx, \
+		"assets/player_right.xpm", &game->width, &game->height);
+	game->textures.player_back = mlx_xpm_file_to_image(game->mlx, \
+		"assets/player_back.xpm", &game->width, &game->height);
 }

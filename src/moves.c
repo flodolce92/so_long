@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 01:40:47 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 02:40:49 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,25 @@ void	update_player_position(t_data *game, int keycode)
 {
 	if (keycode == W)
 	{
+		game->p_pos.direction = BACK;
 		if (game->map[game->p_pos.row - 1][game->p_pos.col] != '1')
 			move_player(game, game->p_pos.row - 1, game->p_pos.col);
 	}
 	else if (keycode == A)
 	{
+		game->p_pos.direction = LEFT;
 		if (game->map[game->p_pos.row][game->p_pos.col - 1] != '1')
 			move_player(game, game->p_pos.row, game->p_pos.col - 1);
 	}
 	else if (keycode == S)
 	{
+		game->p_pos.direction = FRONT;
 		if (game->map[game->p_pos.row + 1][game->p_pos.col] != '1')
 			move_player(game, game->p_pos.row + 1, game->p_pos.col);
 	}
 	else if (keycode == D)
 	{
+		game->p_pos.direction = RIGHT;
 		if (game->map[game->p_pos.row][game->p_pos.col + 1] != '1')
 			move_player(game, game->p_pos.row, game->p_pos.col + 1);
 	}
