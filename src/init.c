@@ -6,11 +6,24 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:12:39 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 02:39:05 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:19:59 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	init_textures(t_data *game)
+{
+	game->textures.ground = NULL;
+	game->textures.coin = NULL;
+	game->textures.door = NULL;
+	game->textures.wall = NULL;
+	game->textures.wall2 = NULL;
+	game->textures.player = NULL;
+	game->textures.player_left = NULL;
+	game->textures.player_right = NULL;
+	game->textures.player_back = NULL;
+}
 
 void	init_struct(t_data *game)
 {
@@ -32,14 +45,6 @@ void	init_struct(t_data *game)
 	game->exit = 0;
 	game->moves = 0;
 	game->score = 0;
-	game->textures.ground = NULL;
-	game->textures.coin = NULL;
-	game->textures.door = NULL;
-	game->textures.wall = NULL;
-	game->textures.wall2 = NULL;
-	game->textures.player = NULL;
-	game->textures.player_left = NULL;
-	game->textures.player_right = NULL;
-	game->textures.player_back = NULL;
 	game->frames = 0;
+	init_textures(game);
 }

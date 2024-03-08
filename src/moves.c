@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 02:40:49 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:28:04 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	move_player(t_data *game, int row, int col)
 {
 	if (game->map[row][col] == 'E' && game->coins != 0)
 	{
-		printf("You need to collect all the coins!\n");
+		ft_putstr_fd("You need to collect all the coins first!\n", 1);
 		return ;
 	}
 	game->map[game->p_pos.row][game->p_pos.col] = '0';
@@ -30,7 +30,8 @@ static void	move_player(t_data *game, int row, int col)
 	}
 	if (game->map[game->p_pos.row][game->p_pos.col] == 'E' && game->coins == 0)
 	{
-		printf("You win!\n");
+		ft_putstr_fd("You fell into the BlackHole!\n", 1);
+		ft_putstr_fd("Enjoy the rest of your life in the void!\n", 1);
 		on_destroy(game);
 	}
 	game->map[game->p_pos.row][game->p_pos.col] = 'P';
