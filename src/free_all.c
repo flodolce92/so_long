@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:45:30 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:46:23 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:03:28 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	free_textures(t_data *game)
 	mlx_destroy_image(game->mlx, game->textures.player_right);
 	mlx_destroy_image(game->mlx, game->textures.player_back);
 	mlx_destroy_image(game->mlx, game->textures.bug);
+	mlx_destroy_image(game->mlx, game->textures.moves);
 }
 
 int	on_destroy(t_data *game)

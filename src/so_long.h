@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:46:40 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:04:43 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_textures
 	void	*player_right;
 	void	*player_back;
 	void	*bug;
+	void	*moves;
 }	t_textures;
 
 typedef struct s_player

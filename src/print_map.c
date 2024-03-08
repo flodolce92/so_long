@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:37:57 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:03:34 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,6 @@ void	fill_window(t_data *game)
 		print_map(game->map[i], game, i);
 		i++;
 	}
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.moves, 32, (game->rows) * 32);
 }

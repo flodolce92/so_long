@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:06:32 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:31:18 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:03:32 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void	open_images(t_data *game)
 		"assets/player_back.xpm", &game->width, &game->height);
 	game->textures.bug = mlx_xpm_file_to_image(game->mlx, \
 		"assets/bug.xpm", &game->width, &game->height);
+	game->textures.moves = mlx_xpm_file_to_image(game->mlx, \
+		"assets/moves.xpm", &game->width, &game->height);
 }

@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:12:39 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 03:19:59 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 22:04:15 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_textures(t_data *game)
 	game->textures.player_left = NULL;
 	game->textures.player_right = NULL;
 	game->textures.player_back = NULL;
+	game->textures.bug = NULL;
+	game->textures.moves = NULL;
 }
 
 void	init_struct(t_data *game)
