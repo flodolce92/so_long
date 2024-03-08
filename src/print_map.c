@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 03:22:19 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:37:57 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	print_map(char *line, t_data *game, int index)
 			print_exit(game, i, index);
 		else if (line[i] == 'P')
 			print_player(game, i, index);
+		else if (line[i] == 'B')
+			print_bug(game, i, index);
 		i++;
 	}
 }

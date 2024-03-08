@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 01:04:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:06:31 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:35:20 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	loop_hook(t_data *game)
 {
 	game->frames++;
 	fill_window(game);
-	usleep(4000);
+	usleep(40000);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 18:05:55 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:46:40 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_textures
 	void	*player_left;
 	void	*player_right;
 	void	*player_back;
+	void	*bug;
 }	t_textures;
 
 typedef struct s_player
@@ -92,6 +93,7 @@ void	print_player(t_data *game, int i, int index);
 void	print_coin(t_data *game, int i, int index);
 void	print_exit(t_data *game, int i, int index);
 void	print_wall(t_data *game, int i, int index);
+void	print_bug(t_data *game, int i, int index);
 
 void	duplicate_map(t_data *game);
 int		validmove(t_data *game, int row, int col);
@@ -103,7 +105,7 @@ int		loop_hook(t_data *game);
 int		key_hook(int keycode, t_data *game);
 void	update_player_position(t_data *game, int keycode);
 
-void	free_map(t_data *game);
+void	free_maps(t_data *game);
 void	free_textures(t_data *game);
 int		on_destroy(t_data *game);
 

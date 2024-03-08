@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/03/08 18:05:41 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/08 18:34:21 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,4 +78,7 @@ norm:
 test:			all
 				@./$(NAME) ./maps/test1.ber
 
-.PHONY:			all clean fclean re norm
+bonus:			all
+				@./$(NAME) ./maps/enemy_map.ber
+
+.PHONY:			all clean fclean re norm test bonus
