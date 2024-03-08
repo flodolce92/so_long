@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 22:51:37 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 04:07:48 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ void	count_map(t_data *game)
 				game->exit++;
 			else if (game->map[i][j] == 'C')
 				game->coins++;
-			else if (game->map[i][j] != '1' && game->map[i][j] != '0')
+			else if (game->map[i][j] != '1' && game->map[i][j] != '0'
+				&& game->map[i][j] != 'B')
 				error_message("Invalid map.");
 			j++;
 		}
