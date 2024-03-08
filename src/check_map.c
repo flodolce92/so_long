@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 04:07:48 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 00:07:53 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ void	count_map(t_data *game)
 	i = 0;
 	while (i < game->rows)
 	{
-		j = 0;
-		while (j < game->cols)
+		j = -1;
+		while (++j < game->cols)
 		{
 			if (game->map[i][j] == 'P')
 			{
@@ -98,7 +98,6 @@ void	count_map(t_data *game)
 			else if (game->map[i][j] != '1' && game->map[i][j] != '0'
 				&& game->map[i][j] != 'B')
 				error_message("Invalid map.");
-			j++;
 		}
 		i++;
 	}

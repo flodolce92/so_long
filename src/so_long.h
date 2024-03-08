@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 22:04:43 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 00:10:53 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-enum keys
+enum e_keys
 {
 	W = 13,
 	A = 0,
@@ -30,7 +30,7 @@ enum keys
 	ESC = 53
 };
 
-enum directions
+enum e_directions
 {
 	FRONT,
 	BACK,
@@ -55,9 +55,9 @@ typedef struct s_textures
 
 typedef struct s_player
 {
-	int				row;
-	int				col;
-	enum directions	direction;
+	int					row;
+	int					col;
+	enum e_directions	direction;
 }	t_player;
 
 typedef struct s_data
