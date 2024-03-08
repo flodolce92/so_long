@@ -6,21 +6,22 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/03/07 22:53:27 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/08 01:10:55 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS_DIR	=	src/
 
-SRC			=	check_map.c \
-				flood_fill.c \
-				free_all.c \
-				init.c \
-				main.c \
+SRC			=	print_map.c \
 				map_utils.c \
+				main.c \
+				free_all.c \
+				flood_fill.c \
+				hooks.c \
 				open_images.c \
-				moves.c \
-				print_map.c
+				check_map.c \
+				init.c \
+				moves.c
 
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
 

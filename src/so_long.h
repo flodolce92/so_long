@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 22:35:40 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 01:52:57 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,22 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+enum keys
+{
+	W = 13,
+	A = 0,
+	S = 1,
+	D = 2,
+	ESC = 53
+};
+
 typedef struct s_textures
 {
 	void	*ground;
 	void	*coin;
 	void	*door;
 	void	*wall;
+	void	*wall2;
 	void	*player;
 }	t_textures;
 
@@ -55,6 +65,7 @@ typedef struct s_data
 	int			moves;
 	int			score;
 	t_textures	textures;
+	int			frames;
 }	t_data;
 
 void	init_struct(t_data *game);
@@ -70,7 +81,8 @@ int		validmove(t_data *game, int row, int col);
 void	open_images(t_data *game);
 void	fill_window(t_data *game);
 
-int		key_hook(int keycode, t_data *game);
+void	loop_hook(t_data *game);
+void	key_hook(int keycode, t_data *game);
 void	update_player_position(t_data *game, int keycode);
 
 void	free_map(t_data *game);

@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:06:32 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 22:35:33 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 01:53:28 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	open_images(t_data *game)
 		"assets/hole.xpm", &game->width, &game->height);
 	game->textures.wall = mlx_xpm_file_to_image(game->mlx, \
 		"assets/wall.xpm", &game->width, &game->height);
+	game->textures.wall2 = mlx_xpm_file_to_image(game->mlx, \
+		"assets/water2.xpm", &game->width, &game->height);
 	game->textures.player = mlx_xpm_file_to_image(game->mlx, \
 		"assets/player.xpm", &game->width, &game->height);
 }

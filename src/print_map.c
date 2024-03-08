@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 22:51:00 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 01:53:05 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ void	print_exit(t_data *game, int i, int index)
 		game->textures.door, i * 32, (index * 32));
 }
 
+void	print_wall(t_data *game, int i, int index)
+{
+	if (game->frames % 2 == 0)
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->textures.wall, i * 32, (index * 32));
+	else
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->textures.wall2, i * 32, (index * 32));
+}
+
 void	print_map(char *line, t_data *game, int index)
 {
 	int		i;
@@ -44,8 +54,7 @@ void	print_map(char *line, t_data *game, int index)
 	while (line[i])
 	{
 		if (line[i] == '1')
-			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.wall, i * 32, (index * 32));
+			print_wall(game, i, index);
 		else if (line[i] == '0')
 			mlx_put_image_to_window(game->mlx, game->win, \
 		game->textures.ground, i * 32, (index * 32));

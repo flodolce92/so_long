@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 23:01:00 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/08 01:05:17 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@ void	error_message(char *message)
 	ft_putstr_fd("Error: ", STDOUT_FILENO);
 	ft_putendl_fd(message, STDOUT_FILENO);
 	exit(EXIT_FAILURE);
-}
-
-int	key_hook(int keycode, t_data *game)
-{
-	if (keycode == 13 || keycode == 0
-		|| keycode == 1 || keycode == 2)
-		update_player_position(game, keycode);
-	else if (keycode == 53)
-		on_destroy(game);
-	return (0);
 }
 
 void	create_window(t_data *game)
@@ -57,6 +47,7 @@ int	main(int ac, char **av)
 	check_map(&game);
 	duplicate_map(&game);
 	create_window(&game);
+	mlx_loop_hook(game.mlx, loop_hook, &game);
 	mlx_hook(game.win, 2, 0, key_hook, &game);
 	mlx_hook(game.win, 17, 0, on_destroy, &game);
 	mlx_loop(game.mlx);
