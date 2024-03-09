@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/09 01:01:04 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 02:26:29 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ void	fill_window(t_data *game)
 		game->textures.moves, 32, (game->rows - 1) * 32);
 	mlx_string_put(game->mlx, game->win, 32 * 2, (game->rows * 32) - 10, \
 		0x00000000, moves);
-	mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.coin, 32 * 3, (game->rows - 1) * 32);
+	// mlx_put_image_to_window(game->mlx, game->win, \
+	// 	game->textures.coin, 32 * 3, (game->rows - 1) * 32);
+	mlx_string_put(game->mlx, game->win, 32 * 3, (game->rows * 32) - 10, \
+		0x00000000, "PROJECTS: ");
 	mlx_string_put(game->mlx, game->win, (32 * 4) + 10, (game->rows * 32) - 10, \
 		0x00000000, score);
 	free(moves);

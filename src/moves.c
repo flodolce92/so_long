@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 23:18:44 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 02:23:07 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ static void	move_check(t_data *game)
 	{
 		game->coins--;
 		game->score++;
-		printf("Score: %d\n", game->score);
+		ft_putstr_fd("Score: ", 1);
+		ft_putnbr_fd(game->score, 1);
+		ft_putstr_fd("\n", 1);
 	}
 	if (game->map[game->p_pos.row][game->p_pos.col] == 'E' && game->coins == 0)
 	{
@@ -28,13 +30,13 @@ static void	move_check(t_data *game)
 	}
 	if (game->map[game->p_pos.row][game->p_pos.col] == 'B')
 	{
-		ft_putstr_fd("\nWatch out! That\'s a bug!\n", 1);
-		ft_putstr_fd("Uh oh, looks like your code is infected\n", 1);
-		ft_putstr_fd("----------------------------------------\n", 1);
-		ft_putstr_fd("You're a loser, baby\n", 1);
-		ft_putstr_fd("A loser, goddamn, baby\n", 1);
-		ft_putstr_fd("You're a f*cked up little whiny b*tch\n", 1);
-		ft_putstr_fd("You're a loser, just like me\n", 1);
+		ft_putendl_fd("\nWatch out! That\'s a bug!", 1);
+		ft_putendl_fd("Uh oh, looks like your code is infected", 1);
+		ft_putendl_fd("----------------------------------------", 1);
+		ft_putendl_fd("You\'re a loser, baby", 1);
+		ft_putendl_fd("A loser, goddamn, baby", 1);
+		ft_putendl_fd("You\'re a f*cked up little whiny b*tch", 1);
+		ft_putendl_fd("You\'re a loser, just like me", 1);
 		on_destroy(game);
 	}
 }
@@ -52,7 +54,9 @@ static void	move_player(t_data *game, int row, int col)
 	move_check(game);
 	game->map[game->p_pos.row][game->p_pos.col] = 'P';
 	game->moves++;
-	printf("Moves: %d\n", game->moves);
+	ft_putstr_fd("Moves: ", 1);
+	ft_putnbr_fd(game->moves, 1);
+	ft_putstr_fd("\n", 1);
 	fill_window(game);
 }
 

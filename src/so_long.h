@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/09 00:10:53 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 02:13:51 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ void	error_message(char *message);
 
 void	get_rows(t_data *game, char *path_map);
 void	check_map(t_data *game);
+int		validmove(t_data *game, int row, int col);
 void	fill_map(t_data *game, char *path_map);
+void	duplicate_map(t_data *game);
 
 void	print_map(char *line, t_data *game, int index);
 void	print_player(t_data *game, int i, int index);
@@ -95,9 +97,6 @@ void	print_coin(t_data *game, int i, int index);
 void	print_exit(t_data *game, int i, int index);
 void	print_wall(t_data *game, int i, int index);
 void	print_bug(t_data *game, int i, int index);
-
-void	duplicate_map(t_data *game);
-int		validmove(t_data *game, int row, int col);
 
 void	open_images(t_data *game);
 void	fill_window(t_data *game);

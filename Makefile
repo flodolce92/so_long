@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2024/03/09 00:11:46 by flo-dolc         ###   ########.fr        #
+#    Updated: 2024/03/09 02:10:58 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ $(NAME):		$(OBJS_DIR) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
+				$(RM) -r $(OBJS_DIR)
 #@make -C ./mlx clean
 #@make -C ./libft clean
 
