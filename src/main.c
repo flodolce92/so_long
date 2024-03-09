@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 22:08:53 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 00:54:07 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	create_window(t_data *game)
 		error_message("mlx_init failed.");
 	game->win = mlx_new_window(game->mlx,
 			game->cols * 32,
-			(game->rows + 1) * 32,
+			game->rows * 32,
 			"so_long");
 	if (!game->win)
 		error_message("mlx_new_window failed.");

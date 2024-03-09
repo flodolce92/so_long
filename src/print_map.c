@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 22:03:34 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 01:01:04 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,25 @@ void	print_map(char *line, t_data *game, int index)
 void	fill_window(t_data *game)
 {
 	int		i;
+	char	*moves;
+	char	*score;
 
 	i = 0;
+	moves = ft_itoa(game->moves);
+	score = ft_itoa(game->score);
 	while (game->map[i] != NULL)
 	{
 		print_map(game->map[i], game, i);
 		i++;
 	}
 	mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.moves, 32, (game->rows) * 32);
+		game->textures.moves, 32, (game->rows - 1) * 32);
+	mlx_string_put(game->mlx, game->win, 32 * 2, (game->rows * 32) - 10, \
+		0x00000000, moves);
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->textures.coin, 32 * 3, (game->rows - 1) * 32);
+	mlx_string_put(game->mlx, game->win, (32 * 4) + 10, (game->rows * 32) - 10, \
+		0x00000000, score);
+	free(moves);
+	free(score);
 }
