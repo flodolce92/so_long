@@ -1,3 +1,5 @@
 # So_long
 
-## This project is still *Work In Progress*.
+## 125/100
+
+**Peer evaluations only**
