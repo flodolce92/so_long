@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/09 02:23:07 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/03/09 21:26:14 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	move_check(t_data *game)
 	}
 	if (game->map[game->p_pos.row][game->p_pos.col] == 'E' && game->coins == 0)
 	{
-		ft_putstr_fd("You fell into the BlackHole!\n", 1);
+		ft_putstr_fd("\nYou fell into the BlackHole!\n", 1);
 		ft_putstr_fd("Enjoy the rest of your life in the void!\n", 1);
 		on_destroy(game);
 	}
