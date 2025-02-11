@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/09 21:30:56 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:42:41 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_map(char *line, t_data *game, int index)
 			print_wall(game, i, index);
 		else if (line[i] == '0')
 			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.ground, i * 32, (index * 32));
+		game->textures.ground, i * TILE_SIZE, (index * TILE_SIZE));
 		else if (line[i] == 'C')
 			print_coin(game, i, index);
 		else if (line[i] == 'E')
@@ -51,12 +51,12 @@ void	fill_window(t_data *game)
 		i++;
 	}
 	mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.moves, 32, (game->rows - 1) * 32);
-	mlx_string_put(game->mlx, game->win, 32 * 2, (game->rows * 32) - 10, \
+		game->textures.moves, TILE_SIZE, (game->rows - 1) * TILE_SIZE);
+	mlx_string_put(game->mlx, game->win, TILE_SIZE * 2, (game->rows * TILE_SIZE) - 10, \
 		0x00000000, moves);
-	mlx_string_put(game->mlx, game->win, 32 * 3, (game->rows * 32) - 10, \
+	mlx_string_put(game->mlx, game->win, TILE_SIZE * 3, (game->rows * TILE_SIZE) - 10, \
 		0x00000000, "PROJECTS: ");
-	mlx_string_put(game->mlx, game->win, (32 * 5) + 10, (game->rows * 32) - 10, \
+	mlx_string_put(game->mlx, game->win, (TILE_SIZE * 5) + 10, (game->rows * TILE_SIZE) - 10, \
 		0x00000000, score);
 	free(moves);
 	free(score);
