@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/09 21:26:14 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/03/04 03:53:23 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,10 @@ static void	move_player(t_data *game, int row, int col)
 	ft_putstr_fd("Moves: ", 1);
 	ft_putnbr_fd(game->moves, 1);
 	ft_putstr_fd("\n", 1);
-	fill_window(game);
 }
 
 void	update_player_position(t_data *game, int keycode)
 {
-	game->frames++;
 	if (keycode == W)
 	{
 		game->p_pos.direction = BACK;
