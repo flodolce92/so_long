@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 20:29:07 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/02/26 20:29:08 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:18:47 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,10 @@ char	*get_next_line(int fd)
 	}
 	line = get_line(leftover[fd]);
 	leftover[fd] = get_new_leftover(leftover[fd]);
+	if (leftover[fd] && ft_strncmp(leftover[fd], "\0", 1) == 0)
+	{
+		free(leftover[fd]);
+		leftover[fd] = NULL;
+	}
 	return (line);
 }
