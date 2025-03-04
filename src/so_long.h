@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/05/03 05:19:25 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/05 21:40:35 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ typedef struct s_data
 }	t_data;
 
 void	init_struct(t_data *game);
-void	error_message(char *message);
+void	error_message(char *message, t_data *game);
 
 void	get_rows(t_data *game, char *path_map);
 void	check_map(t_data *game);

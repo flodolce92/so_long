@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 00:20:14 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/05/05 21:20:40 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/05 21:43:30 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	check_flood(t_data *game)
 		while (j < game->cols)
 		{
 			if (game->map_dup[i][j] == 'C' || game->map_dup[i][j] == 'E')
-				error_message("Invalid map.");
+				error_message("Invalid map.", game);
 			j++;
 		}
 		i++;
@@ -59,13 +59,13 @@ void	duplicate_map(t_data *game)
 
 	game->map_dup = (char **) malloc(sizeof(char *) * (game->rows + 1));
 	if (game->map_dup == NULL)
-		error_message("Memory allocation failed.");
+		error_message("Memory allocation failed.", game);
 	i = 0;
 	while (i < game->rows)
 	{
 		game->map_dup[i] = ft_strdup(game->map[i]);
 		if (game->map_dup[i] == NULL)
-			error_message("Memory allocation failed.");
+			error_message("Memory allocation failed.", game);
 		i++;
 	}
 	game->map_dup[i] = NULL;

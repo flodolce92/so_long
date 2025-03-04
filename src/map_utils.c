@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:46:08 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/07 19:01:04 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/05 21:43:57 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	get_rows(t_data *game, char *path_map)
 	rows = 0;
 	fd = open(path_map, O_RDONLY);
 	if (fd < 0)
-		error_message("No map found.");
+		error_message("No map found.", game);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -43,13 +43,13 @@ void	fill_map(t_data *game, char *path_map)
 	i = 0;
 	get_rows(game, path_map);
 	if (game->rows == 0)
-		error_message("Invalid map.");
+		error_message("Invalid map.", game);
 	fd = open(path_map, O_RDONLY);
 	if (fd < 0)
-		error_message("No map found.");
+		error_message("No map found.", game);
 	game->map = (char **) malloc(sizeof(char *) * (game->rows + 1));
 	if (game->map == NULL)
-		error_message("Memory allocation failed.");
+		error_message("Memory allocation failed.", game);
 	while (i < game->rows)
 	{
 		game->map[i] = get_next_line(fd);
