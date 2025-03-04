@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 19:37:42 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/03/04 03:53:23 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/03/04 04:37:21 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ static void	move_player(t_data *game, int row, int col)
 	game->p_pos.col = col;
 	move_check(game);
 	game->map[game->p_pos.row][game->p_pos.col] = 'P';
+	if (game->moves == 999)
+	{
+		ft_putstr_fd("Capped moves", 1);
+		return ;
+	}
 	game->moves++;
 	ft_putstr_fd("Moves: ", 1);
 	ft_putnbr_fd(game->moves, 1);

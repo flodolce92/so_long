@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/02/11 16:42:41 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/03/04 04:41:33 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ void	fill_window(t_data *game)
 		i++;
 	}
 	mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.moves, TILE_SIZE, (game->rows - 1) * TILE_SIZE);
-	mlx_string_put(game->mlx, game->win, TILE_SIZE * 2, (game->rows * TILE_SIZE) - 10, \
-		0x00000000, moves);
-	mlx_string_put(game->mlx, game->win, TILE_SIZE * 3, (game->rows * TILE_SIZE) - 10, \
-		0x00000000, "PROJECTS: ");
-	mlx_string_put(game->mlx, game->win, (TILE_SIZE * 5) + 10, (game->rows * TILE_SIZE) - 10, \
-		0x00000000, score);
+		game->textures.moves, TILE_SIZE, ((game->rows - 1) * TILE_SIZE) + 32);
+	mlx_string_put(game->mlx, game->win, TILE_SIZE + 40, \
+		(game->rows * TILE_SIZE) - 10, 0x00000000, moves);
+	mlx_string_put(game->mlx, game->win, TILE_SIZE * 2, \
+		(game->rows * TILE_SIZE) - 10, 0x00000000, "PROJECTS: ");
+	mlx_string_put(game->mlx, game->win, (TILE_SIZE * 2) + 1, \
+		(game->rows * TILE_SIZE) - 10, 0x00000000, "PROJECTS: ");
+	mlx_string_put(game->mlx, game->win, (TILE_SIZE * 3) + 10, \
+		(game->rows * TILE_SIZE) - 10, 0x00000000, score);
 	free(moves);
 	free(score);
 }
