@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2025/02/10 18:37:36 by flo-dolc         ###   ########.fr        #
+#    Updated: 2025/05/03 04:01:41 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,11 @@ RESET		=	\033[0m
 # =============================================================================
 # Directories and Files
 # =============================================================================
-SRCS_DIR	=	src/
-OBJS_DIR	=	obj/
+SRCS_DIR	=	src
+OBJS_DIR	=	obj
+LIB_DIR		=	lib
+MLX_DIR		=	$(LIB_DIR)/mlx_linux
+LIBFT_DIR	=	$(LIB_DIR)/libft
 
 SRC			=	print_map.c \
 				print_obj.c \
@@ -36,8 +39,8 @@ SRC			=	print_map.c \
 				check_map.c \
 				init.c \
 				moves.c
-SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
-OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.c=.o))
+SRCS		=	$(addprefix $(SRCS_DIR)/, $(SRC))
+OBJS		=	$(addprefix $(OBJS_DIR)/, $(SRC:.c=.o))
 
 # =============================================================================
 # Compiler and Flags
@@ -46,9 +49,9 @@ NAME		=	so_long
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -f
-INCLUDES	=	-I/usr/include -Imlx_linux -O3 -Ilibft
-MLX_FLAGS	=	-Lmlx_linux -lmlx -L/usr/lib -lXext -lX11 -lm -lz
-LIBFT_FLAGS	=	-Llibft -lft
+INCLUDES	=	-I/usr/include -I$(MLX_DIR) -O3 -I$(LIBFT_DIR)
+MLX_FLAGS	=	-L$(MLX_DIR) -lmlx -L/usr/lib -lXext -lX11 -lm -lz
+LIBFT_FLAGS	=	-L$(LIBFT_DIR) -lft
 
 # =============================================================================
 # Rules
@@ -62,16 +65,16 @@ $(OBJS_DIR):
 				@mkdir -p $(OBJS_DIR)
 
 # Compile source files into object files
-$(OBJS_DIR)%.o:	$(SRCS_DIR)%.c | $(OBJS_DIR)
+$(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c | $(OBJS_DIR)
 				@echo "$(BLUE)Compiling $<...$(RESET)"
 				@$(CC) $(CFLAGS) -c -g $< -o $@ $(INCLUDES)
 
 # Link object files to create the executable
 $(NAME):		$(OBJS_DIR) $(OBJS)
 				@echo "$(YELLOW)Compiling mlx_linux...$(RESET)"
-				@make --no-print-directory -C ./mlx_linux > /dev/null 2>&1
+				@make --no-print-directory -C ./$(MLX_DIR) > /dev/null 2>&1
 				@echo "$(YELLOW)Compiling libft...$(RESET)"
-				@make --no-print-directory -C ./libft > /dev/null 2>&1
+				@make --no-print-directory -C ./$(LIBFT_DIR) > /dev/null 2>&1
 				@echo "$(GREEN)Compilation complete!$(RESET)"
 				@echo "$(GREEN)Linking objects and creating $(NAME)...$(RESET)"
 				@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS) $(LIBFT_FLAGS)
@@ -82,15 +85,15 @@ clean:
 				@$(RM) $(OBJS)
 				@$(RM) -r $(OBJS_DIR)
 				@echo "$(RED)Cleaning mlx_linux and libft...$(RESET)"
-				@make --no-print-directory -C ./mlx_linux clean > /dev/null 2>&1
-				@make --no-print-directory -C ./libft clean > /dev/null 2>&1
+				@make --no-print-directory -C ./$(MLX_DIR) clean > /dev/null 2>&1
+				@make --no-print-directory -C ./$(LIBFT_DIR) clean > /dev/null 2>&1
 
 # Clean object files and remove the executable
 fclean:			clean
 				@echo "$(RED)Removing executable...$(RESET)"
 				@$(RM) $(NAME)
 				@echo "$(RED)Removing libft.a...$(RESET)"
-				@make --no-print-directory -C ./libft fclean > /dev/null 2>&1
+				@make --no-print-directory -C ./$(LIBFT_DIR) fclean > /dev/null 2>&1
 
 # Rebuild the project from scratch
 re:				fclean all
