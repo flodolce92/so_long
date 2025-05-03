@@ -6,33 +6,33 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:46:29 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/03/04 04:41:33 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/03 05:17:12 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_map(char *line, t_data *game, int index)
+void	print_map(char *line, t_data *game, int row)
 {
-	int		i;
+	int	column;
 
-	i = 0;
-	while (line[i])
+	column = 0;
+	while (line[column])
 	{
-		if (line[i] == '1')
-			print_wall(game, i, index);
-		else if (line[i] == '0')
+		if (line[column] == '1')
+			print_wall(game, column, row);
+		else if (line[column] == '0')
 			mlx_put_image_to_window(game->mlx, game->win, \
-		game->textures.ground, i * TILE_SIZE, (index * TILE_SIZE));
-		else if (line[i] == 'C')
-			print_coin(game, i, index);
-		else if (line[i] == 'E')
-			print_exit(game, i, index);
-		else if (line[i] == 'P')
-			print_player(game, i, index);
-		else if (line[i] == 'B')
-			print_bug(game, i, index);
-		i++;
+		game->textures.ground, column * TILE_SIZE, (row * TILE_SIZE));
+		else if (line[column] == 'C')
+			print_coin(game, column, row);
+		else if (line[column] == 'E')
+			print_exit(game, column, row);
+		else if (line[column] == 'P')
+			print_player(game, column, row);
+		else if (line[column] == 'B')
+			print_bug(game, column, row);
+		column++;
 	}
 }
 
