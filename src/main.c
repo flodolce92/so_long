@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 07:58:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/02/11 16:42:41 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/03 04:55:22 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	main(int ac, char **av)
 	duplicate_map(&game);
 	create_window(&game);
 	mlx_loop_hook(game.mlx, loop_hook, &game);
-	mlx_hook(game.win, 2, 1L << 0, key_hook, &game);
+	mlx_hook(game.win, 2, 1L << 0, handle_key_press, &game);
+	mlx_hook(game.win, 3, 1L << 1, handle_key_released, &game);
 	mlx_hook(game.win, 17, 1L << 17, on_destroy, &game);
 	mlx_loop(game.mlx);
 	exit(EXIT_SUCCESS);

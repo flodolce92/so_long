@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 23:46:28 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/03/04 04:12:07 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/03 04:56:28 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <unistd.h>
 # include <fcntl.h>
 
@@ -62,6 +63,14 @@ typedef struct s_player
 	enum e_directions	direction;
 }	t_player;
 
+typedef struct s_key_press
+{
+	bool	a;
+	bool	d;
+	bool	s;
+	bool	w;
+}	t_key_press;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -82,6 +91,7 @@ typedef struct s_data
 	int			score;
 	t_textures	textures;
 	int			frames;
+	t_key_press	keys;
 }	t_data;
 
 void	init_struct(t_data *game);
@@ -104,8 +114,9 @@ void	open_images(t_data *game);
 void	fill_window(t_data *game);
 
 int		loop_hook(t_data *game);
-int		key_hook(int keycode, t_data *game);
-void	update_player_position(t_data *game, int keycode);
+int		handle_key_press(int keycode, t_data *game);
+int		handle_key_released(int keycode, t_data *game);
+void	update_player_position(t_data *game);
 
 void	free_maps(t_data *game);
 void	free_textures(t_data *game);

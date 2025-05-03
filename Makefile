@@ -6,7 +6,7 @@
 #    By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 17:23:42 by flo-dolc          #+#    #+#              #
-#    Updated: 2025/05/03 04:01:41 by flo-dolc         ###   ########.fr        #
+#    Updated: 2025/05/03 04:57:30 by flo-dolc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ re:				fclean all
 # Run the norminette
 norm:
 				@echo "$(BLUE)Running norminette...$(RESET)"
-				@norminette $(SRCS) $(SRCS_DIR)so_long.h
+				@norminette $(SRCS) $(SRCS_DIR)/so_long.h
 
 # Run the test
 test:			all
