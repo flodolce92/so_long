@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 00:20:14 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/03/08 04:11:22 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/05 21:20:40 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static void	floodfill(t_data *game, int row, int col)
 	if (!validmove(game, row, col) || game->map_dup[row][col] == '-'
 		|| game->map_dup[row][col] == 'B')
 		return ;
+	if (game->map_dup[row][col] == 'E')
+	{
+		game->map_dup[row][col] = '-';
+		return ;
+	}
 	game->map_dup[row][col] = '-';
 	floodfill(game, row - 1, col);
 	floodfill(game, row + 1, col);
