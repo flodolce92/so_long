@@ -6,7 +6,7 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:45:30 by flo-dolc          #+#    #+#             */
-/*   Updated: 2025/05/05 21:38:18 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2025/05/07 05:46:33 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	on_destroy(t_data *game)
 	free_maps(game);
 	if (game->mlx)
 	{
-		free_textures(game);
+		if (game->textures.coin)
+			free_textures(game);
 		mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
